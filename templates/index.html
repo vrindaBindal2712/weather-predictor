@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Predictor</h1>
+        <form id="weather-form">
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" id="temperature" required>
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" id="humidity" required>
+            <label for="wind_speed">Wind Speed (m/s):</label>
+            <input type="number" id="wind_speed" required>
+            <button type="submit">Predict Weather</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('weather-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const temp = document.getElementById('temperature').value;
+            const hum = document.getElementById('humidity').value;
+            const wind = document.getElementById('wind_speed').value;
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    temperature: temp,
+                    humidity: hum,
+                    wind_speed: wind,
+                }),
+            });
+
+            const data = await response.json();
+            document.getElementById('result').innerText = 'Predicted Weather: ' + data.prediction;
+        });
+    </script>
+</body>
+</html>

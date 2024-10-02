@@ -1,0 +1,84 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #1b1818;
+}
+
+/* Main Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #0072ff;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input Styles */
+label {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #0072ff;
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    padding: 10px;
+    background-color: #0072ff;
+    border: none;
+    border-radius: 5px;
+    color: rgb(240, 234, 234);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Result Styles */
+#result {
+    margin-top: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
